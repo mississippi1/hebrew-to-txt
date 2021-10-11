@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html style="align-content: center;">
+<head style="align-content: center;">
+<meta name="viewport" content="width=device-width, initial-scale=1" style="align-content: center;">
+<style >
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  align-content: center;
+  text-align: center;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+</head>
+<body style="align-content: center;">
+
+<h2 style="align-content: center; font-family:sans-serif" >Finding the Perfect Songs...</h2>
+
+<div class="loader" style="align-content: center;"></div>
+
+
+<script> function recommend_track(track_id){
+    fetch("/recommend_track", {
+      method: "POST",
+      body: JSON.stringify({ track_id: track_id }),
+    }).then((_res) => {
+      window.location.href  = "/recommend_track_results";
+    })}
+    recommend_track('{{track_id}}'); </script>
+    </body>
+</html>

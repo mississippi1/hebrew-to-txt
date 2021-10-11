@@ -1,0 +1,64 @@
+{% extends "base.html" %} {%block title%} Home Page {% endblock%}
+{%block content%}
+
+<form method="POST">
+    <h3 align="center">
+        Search for a track
+    </h3>
+    <div class="form-group">
+        <input type='text'
+        class="form-control"
+        id='text'
+        name='track'
+        placeholder="Track Name"
+        />
+    </div>
+    <style>
+        .tooltip {
+          position: relative;
+          display: inline-block;
+          border-bottom: 100px dotted black;
+        }
+        
+        .tooltip .tooltiptext {
+          visibility: visible;
+          width: 1200px;
+          background-color: black;
+          color: rgb(204, 38, 38);
+          text-align: center;
+          border-radius: 60px;
+          padding: 50px 0;
+          position: relative;
+          z-index: 10;
+          bottom: 10%;
+          left: 50%;
+          
+          
+          /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+          opacity: 0.5;
+          transition: opacity 10s;
+        }
+        
+        .tooltip:hover .tooltiptext {
+          visibility: visible;
+          opacity: 0.5;
+        }
+        div#loading {
+  width: 35px;
+  height: 35px;
+  display: none;
+  background: url(/static/loadingimage.gif) no-repeat;
+  cursor: wait;
+  }
+  </style>
+    <h3 white-space: pre-line; style="text-align:center;" > Welcome to a place of endless posibilities <br>
+        Search for any track you like, and discover a new favorite 
+        </h3>
+    <div class="tooltip" style="color: brown;size: 20;">Help?
+        <dic class="tooltiptext" style="text-align: center;">1. Search for your favorite track<br>
+                                  2. Choose the exact one you wish <br>
+                                3. Pick the relevant parameters <br>
+                            4. Enjoy your suggestions!</div>
+        </div>
+</form>
+{%endblock%}

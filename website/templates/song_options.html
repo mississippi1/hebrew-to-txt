@@ -1,0 +1,31 @@
+{% extends "base.html" %} {%block title%} Track Options {% endblock%}
+{%block content%}
+<html>
+    <link rel="stylesheet" href="css_file.css"/> 
+        <p>One of those?</p>
+        <hr>
+    
+      <ol class="gradient-list">
+        {% if similar_songs|length >0 %}
+        {% for track_id in similar_songs.keys() %}
+        <div class="items-body-content" id ={{track_id}} >
+          <span>
+            <a href={{similar_songs[track_id][2]}} >
+                {{"Name: " + similar_songs[track_id][0]}}  <br> 
+                Artist: {{similar_songs[track_id][1]}}</a>
+            <button type="button" value="link"  onClick="loading('{{ track_id }}')"> Choose This Track</button>
+          </span>
+        </div>
+
+        {%endfor%}
+        </ol>
+     {% else%}
+     <h6> No Songs</h6>
+     {%endif%}
+        
+      
+    </div>
+</div>
+
+{% endblock%}
+</html>

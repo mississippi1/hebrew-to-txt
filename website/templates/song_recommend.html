@@ -1,0 +1,25 @@
+{% extends "base.html" %} {%block title%} Track Recommendation {% endblock%}
+{%block content%}
+
+<form>
+   
+    {% if similar_songs|length >0 %}
+    {% for track_id in similar_songs.keys() %}
+    
+    <li class="list-group-item" id ={{track_id}} >
+        <a href={{similar_songs[track_id][2]}} >
+            {{"Name: " + similar_songs[track_id][0]}}  <br> 
+            Artist: {{similar_songs[track_id][1]}}
+            </a>
+    </li>
+     {%endfor%}
+     {% else%}
+     <li class="list-group-item" id ={{track_id}} >
+     No Tracks found</li>
+     {%endif%}
+     <!-- </div> -->
+      
+    
+</form>
+
+{% endblock%}
